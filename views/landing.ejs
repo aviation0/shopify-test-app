@@ -1,52 +1,19 @@
 <html>
 <head>
-    <!-- <script type="text/javascript" src="../logic.js"></script> -->
-    <script>
-        const request = require("request");
-        console.log("hola");
-        function disable(){
-            const accessToken = document.querySelector("#a").innerHTML;
-            const scriptRequestUrl = document.querySelector("#b").innerHTML;
-            console.log(accessToken);
-            console.log(scriptRequestUrl);
-            const shopRequestHeaders = {
-                'X-Shopify-Access-Token': accessToken
-            };
-
-            const createScriptTagUrl = scriptRequestUrl;
-            const scriptTagBody = {
-                "script_tag": {
-                    "event": "onload",
-                    "src": "https://d7ae15fb.ngrok.io/myscript"
-                }
-            }
-            request.post({
-                url: createScriptTagUrl,
-                body: scriptTagBody,
-                headers: shopRequestHeaders,
-                json: true
-            }, function (error, response, body) {
-
-                if(error){
-                    console.log(error);
-                } else{
-                    console.log(respose);
-                }
-            });
-
-
-            
-
-        }
-
-    </script>
+    
 </head>
 <body>
     <h1>hey there</h1>
     <h2 id="a"><%=accessToken%></h2>
     <h2 id="b"><%=scriptRequestUrl%></h2>
-    <!-- <form action="" method="POST"> -->
-        <button  onclick="disable()">Turn on</button>
-    <!-- </form> -->
+    <h2 id="c"><%=shop%></h2>
+    
+    <button id="btn">Turn on</button>
+    <!-- jQuery CDN -->
+<script
+src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+<script src="/ajax.js" type="application/javascript"></script>
 </body>
 </html>
